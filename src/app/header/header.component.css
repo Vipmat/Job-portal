@@ -1,15 +1,15 @@
 .header-base {
+  position: relative;
   border: 1px solid black;
   border-radius: 5px;
   height: 200px;
-  width: 85%;
-  position: absolute;
-  align-items: center;
+  width: 100%;
+  text-align: left;
 }
 
 .navigation-buttons {
-  right: 10px;
+  right: 0;
   text-align: right;
-  top: 60%;
-  position: relative;
+  bottom: 0;
+  position: absolute;
 }
