@@ -5,11 +5,11 @@
   height: 200px;
   width: 100%;
   text-align: left;
+  overflow: hidden;
 }
 
-.navigation-buttons {
-  right: 0;
-  text-align: right;
-  bottom: 0;
+nav {
   position: absolute;
+  bottom: 0;
+  width: 100%;
 }
