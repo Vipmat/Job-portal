@@ -1,0 +1,31 @@
+footer {
+  background-color: black;
+  height: 200px;
+  position: relative;
+}
+
+.newsletter h2 {
+  position: absolute;
+  color: rgba(212, 209, 209);
+  top: 20%;
+  left: 10%;
+}
+
+ul {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: rgba(212, 209, 209);
+}
