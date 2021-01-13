@@ -1,44 +1,136 @@
 <div class="uk-container">
   <div class="row">
-    <form>
-      <fieldset class="uk-fieldset">
-        <legend class="uk-legend">
-          {{ isLoginMode ? "Login" : "Sign up" }}
-        </legend>
-        <div class="uk-margin">
+    <!-- Signup Form -->
+    <form
+      [formGroup]="signupForm"
+      *ngIf="!isLoginMode"
+      (ngSubmit)="onSignUpSubmit()"
+    >
+      <div formGroupName="signupData">
+        <fieldset class="uk-fieldset">
+          <legend class="uk-legend">Sign Up</legend>
+          <div class="uk-margin">
+            <input
+              type="text"
+              class="uk-input uk-form-width-small"
+              id="first_name"
+              formControlName="first_name"
+              placeholder="First Name"
+            />
+
+            &nbsp;
+            <input
+              type="text"
+              class="uk-input uk-form-width-medium"
+              id="last_name"
+              formControlName="last_name"
+              placeholder="Last Name"
+            />
+          </div>
           <input
-            type="email"
-            class="uk-input uk-form-width-large"
-            id="email"
-            placeholder="Email"
+            type="text"
+            class="uk-input uk-form-width-medium"
+            id="company_name"
+            formControlName="company_name"
+            placeholder="Company Name"
           />
-        </div>
-        <div class="uk-margin">
-          <input
-            type="password"
-            class="uk-input uk-form-width-large"
-            id="password"
-            placeholder="Password"
-          />
-        </div>
-        <div>
+          <div class="uk-margin">
+            <input
+              type="email"
+              class="uk-input uk-form-width-large"
+              id="new_email"
+              formControlName="new_email"
+              placeholder="Email"
+            />
+            <span
+              *ngIf="
+                !signupForm.get('signupData.new_email').valid &&
+                signupForm.get('signupData.new_email').touched
+              "
+              class="help-block"
+              >Please enter a valid email address!</span
+            >
+          </div>
+          <div class="uk-margin">
+            <input
+              type="password"
+              class="uk-input uk-form-width-large"
+              id="new_password"
+              formControlName="new_password"
+              placeholder="Password"
+            />
+          </div>
+          <span
+            *ngIf="!signupForm.valid && signupForm.touched"
+            class="help-block"
+            >Please enter valid data!</span
+          >
+          <div class="uk-margin"></div>
+
           <button
             class="uk-button uk-button-primary uk-button-small"
             type="submit"
           >
-            {{ isLoginMode ? "Login" : "Sign up" }}
+            Sign Up
           </button>
-          <div class="uk-margin">
-            <button
-              type="button"
-              class="uk-button uk-button-primary uk-button-small"
-              (click)="onSwitchMode()"
-            >
-              Switch To {{ isLoginMode ? "Sign up" : "Login" }}
-            </button>
-          </div>
-        </div>
-      </fieldset>
+          <div class="uk-margin"></div>
+        </fieldset>
+      </div>
     </form>
+
+    <!-- Login Form -->
+    <form
+      [formGroup]="loginForm"
+      *ngIf="isLoginMode"
+      (ngSubmit)="onLoginSubmit()"
+    >
+      <div formGroupName="loginData">
+        <fieldset class="uk-fieldset">
+          <legend class="uk-legend">Login</legend>
+          <div class="uk-margin"></div>
+          <div class="uk-margin">
+            <input
+              type="email"
+              class="uk-input uk-form-width-large"
+              id="email"
+              formControlName="email"
+              placeholder="Email"
+            />
+            <span
+              *ngIf="
+                !loginForm.get('loginData.email').valid &&
+                loginForm.get('loginData.email').touched
+              "
+              class="help-block"
+              >Please enter a valid email address!</span
+            >
+          </div>
+          <div class="uk-margin">
+            <input
+              type="password"
+              class="uk-input uk-form-width-large"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+
+          <button
+            class="uk-button uk-button-primary uk-button-small"
+            type="submit"
+          >
+            Login
+          </button>
+          <div class="uk-margin"></div>
+        </fieldset>
+      </div>
+    </form>
+    <button
+      type="button"
+      class="uk-button-primary uk-button-small switchFormModeButton"
+      (click)="onSwitchMode()"
+    >
+      Switch To {{ isLoginMode ? "Sign up" : "Login" }}
+    </button>
   </div>
 </div>
