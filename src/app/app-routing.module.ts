@@ -7,6 +7,7 @@ import { FaqComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { RecruitersComponent } from './recruiters/recruiters.component';
+import { AuthComponent } from './recruiters/auth/auth.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'auth', component: AuthComponent },
 ];
 
 @NgModule({

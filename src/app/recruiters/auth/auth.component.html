@@ -1,0 +1,44 @@
+<div class="uk-container">
+  <div class="row">
+    <form>
+      <fieldset class="uk-fieldset">
+        <legend class="uk-legend">
+          {{ isLoginMode ? "Login" : "Sign up" }}
+        </legend>
+        <div class="uk-margin">
+          <input
+            type="email"
+            class="uk-input uk-form-width-large"
+            id="email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="uk-margin">
+          <input
+            type="password"
+            class="uk-input uk-form-width-large"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div>
+          <button
+            class="uk-button uk-button-primary uk-button-small"
+            type="submit"
+          >
+            {{ isLoginMode ? "Login" : "Sign up" }}
+          </button>
+          <div class="uk-margin">
+            <button
+              type="button"
+              class="uk-button uk-button-primary uk-button-small"
+              (click)="onSwitchMode()"
+            >
+              Switch To {{ isLoginMode ? "Sign up" : "Login" }}
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
